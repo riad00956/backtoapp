@@ -1,0 +1,21 @@
+kind: WASI
+name: your-username/python-web-ide
+version: 0.1.0
+description: Python Web IDE on Wasmer
+
+# Use the official Python runner
+run:
+  command: python3 app.py
+  env:
+    PYTHONPATH: /app
+    PORT: 8000
+
+# Specify files to include
+volumes:
+  - name: project-data
+    path: ./my_projects
+
+# Map the Python runtime
+dependencies:
+  "python": "python/python@3.11"
+  
